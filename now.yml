@@ -7,12 +7,4 @@ columns:
 query:
   - operational_status: = 1
     fqdn: ISNOTEMPTY
-    manufacturer: STARTSWITH Cisco
-keyed_groups:
-  - key: environment
-    prefix: env_
-    separator: ""
-groups:
-  development: "'devel' in environment"
-compose:
-  ansible_host: fqdn
+    manufacturer: STARTSWITH Lenovo
