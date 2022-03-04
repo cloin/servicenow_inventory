@@ -1,10 +1,13 @@
-plugin: servicenow.itsm.now
-table: cmdb_ci_ec2_instance
-columns:
-  - ip_address
-  - name
-  - vm_inst_id
-query:
-  - operational_status: = 1
-    fqdn: ISNOTEMPTY
-    manufacturer: STARTSWITH Lenovo
+# Group hosts into named groups, according to the specified criteria.
+# Below example creates a single group containing hosts that match
+# all the criteria.
+named_groups:
+  non_windows_prod_servers:
+    classification:
+      includes: [ Production ]
+    os:
+      excludes:
+        - Windows XP
+        - Windows 2000
+        - Windows 2000 Server
+        - Windows 2003 Standard
