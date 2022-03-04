@@ -12,8 +12,18 @@
 #         - Windows 2000 Server
 #         - Windows 2003 Standard
 
-# Group hosts automatically, according to values of the manufacturer column.
+# # Group hosts automatically, according to values of the manufacturer column.
+# plugin: servicenow.itsm.now
+# keyed_groups:
+#   - key: manufacturer
+#     separator: ""
+
+# Group hosts automatically, according to values of the os column. Filtering ensures
+# that we only see selected operating systems.
 plugin: servicenow.itsm.now
+query:
+  - os: = Linux Red Hat
+  - os: = Windows XP
 keyed_groups:
-  - key: manufacturer
-    separator: ""
+  - key: os
+    prefix: os
