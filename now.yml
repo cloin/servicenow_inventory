@@ -1,13 +1,19 @@
-# Group hosts into named groups, according to the specified criteria.
-# Below example creates a single group containing hosts that match
-# all the criteria.
-named_groups:
-  non_windows_prod_servers:
-    classification:
-      includes: [ Production ]
-    os:
-      excludes:
-        - Windows XP
-        - Windows 2000
-        - Windows 2000 Server
-        - Windows 2003 Standard
+# # Group hosts into named groups, according to the specified criteria.
+# # Below example creates a single group containing hosts that match
+# # all the criteria.
+# named_groups:
+#   non_windows_prod_servers:
+#     classification:
+#       includes: [ Production ]
+#     os:
+#       excludes:
+#         - Windows XP
+#         - Windows 2000
+#         - Windows 2000 Server
+#         - Windows 2003 Standard
+
+# Group hosts automatically, according to values of the manufacturer column.
+plugin: servicenow.itsm.now
+keyed_groups:
+  - key: manufacturer
+    separator: ""
